@@ -8,7 +8,12 @@ overflow-x:hidden;
 #particles{position:fixed;inset:0;z-index:-1}
 #login{padding:40px 15px;text-align:center}
 .heart{font-size:70px;color:#ff77b5;text-shadow:0 0 25px #ff4f9d}
-h1{font-size:clamp(28px,5vw,52px)}
+h1{
+    font-size: clamp(28px,5vw,52px);
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    text-shadow: 0 0 15px rgba(255,255,255,.15);
+}
 .subtitle{margin:20px 0}
 .countdown{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
 .box{
