@@ -23,7 +23,7 @@ setTimeout(() => {
     } else {
 
         document.getElementById("erro").innerHTML =
-            "❌ Senha incorreta!<br><br>Dica: foi o dia em que uma garota chamada minha Bruxinha começou a causar problemas no meu coração. ❤️";
+            "❌ Senha incorreta!<br><br>Dica: foi o dia em que uma garota chamada minha Mavi Morais começou a causar problemas no meu coração. ❤️";
 
     }
 }
