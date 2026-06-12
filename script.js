@@ -1,5 +1,5 @@
 function entrar() {
-    if (document.getElementById("senha").value === "6755lx7") {
+    if (document.getElementById("senha").value === "23/05/2026") {
 
         const login = document.getElementById("login");
 const conteudo = document.getElementById("conteudo");
