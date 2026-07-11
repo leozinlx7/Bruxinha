@@ -1,152 +1,154 @@
 <!DOCTYPE html>
-
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Para Minha Bruxinha ❤️</title>
-<meta name="description" content="Uma surpresa especial ❤️">
-<meta property="og:title" content="Uma Surpresa ❤️">
-<meta property="og:description" content="Clique para descobrir ❤️">
-<meta property="og:type" content="website">
-<link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>😂 Não Tem Nada Aqui 😂</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    overflow:hidden;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:radial-gradient(circle at top,#10245c 0%,#071225 45%,#000 100%);
+    font-family:Arial, Helvetica, sans-serif;
+    position:relative;
+}
+
+/* Estrelas */
+body::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image:
+    radial-gradient(2px 2px at 20px 30px,#fff,transparent),
+    radial-gradient(2px 2px at 120px 80px,#7fc9ff,transparent),
+    radial-gradient(2px 2px at 250px 180px,#fff,transparent),
+    radial-gradient(2px 2px at 400px 100px,#6cbcff,transparent),
+    radial-gradient(2px 2px at 600px 220px,#fff,transparent),
+    radial-gradient(2px 2px at 850px 50px,#7fc9ff,transparent);
+    background-size:900px 500px;
+    animation:stars 60s linear infinite;
+}
+
+/* Nebulosa */
+body::after{
+    content:"";
+    position:absolute;
+    inset:-20%;
+    background:
+    radial-gradient(circle,#005eff55 0%,transparent 35%),
+    radial-gradient(circle,#2b7cff33 0%,transparent 45%),
+    radial-gradient(circle,#00153366 0%,transparent 55%);
+    filter:blur(80px);
+    animation:nebula 12s ease-in-out infinite alternate;
+}
+
+.container{
+    position:relative;
+    z-index:10;
+    text-align:center;
+}
+
+h1{
+    color:white;
+    font-size:4rem;
+    text-shadow:
+    0 0 10px #00bfff,
+    0 0 25px #0088ff,
+    0 0 50px #004cff;
+    animation:pulse 2s infinite alternate;
+}
+
+/* Chuva de emojis */
+
+.rain{
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+}
+
+.rain span{
+    position:absolute;
+    top:-100px;
+    font-size:45px;
+    animation:fall linear infinite;
+}
+
+@keyframes fall{
+    from{
+        transform:translateY(-120px) rotate(0deg);
+    }
+    to{
+        transform:translateY(120vh) rotate(360deg);
+    }
+}
+
+@keyframes pulse{
+    from{
+        transform:scale(1);
+    }
+    to{
+        transform:scale(1.05);
+    }
+}
+
+@keyframes stars{
+    from{
+        background-position:0 0;
+    }
+    to{
+        background-position:-900px 500px;
+    }
+}
+
+@keyframes nebula{
+    from{
+        transform:scale(1);
+    }
+    to{
+        transform:scale(1.15) rotate(8deg);
+    }
+}
+</style>
 </head>
+
 <body>
 
-<canvas id="particles"></canvas>
+<div class="rain" id="rain"></div>
 
-<audio id="music" loop>
-<source src="musica.mp3" type="audio/mpeg">
-</audio>
-
-<section id="login">
-<div class="heart">♡</div>
-<h1>Uma pequena surpresa pra você<br>mas com uma importância enorme pra mim ❤️</h1>
-
-<div class="subtitle">Faltam para o Dia dos Namorados ❤️</div>
-
-<div class="countdown">
-<div class="box"><span id="d">0</span><small>Dias</small></div>
-<div class="box"><span id="h">0</span><small>Horas</small></div>
-<div class="box"><span id="m">0</span><small>Minutos</small></div>
-<div class="box"><span id="s">0</span><small>Segundos</small></div>
+<div class="container">
+<h1>NÃO TEM NADA PRA VC AQUI VITÓRIA</h1>
 </div>
 
-<div class="card">
-<p>💘 Digite a senha para entrar 💘</p>
-<input id="senha" type="password" placeholder="Senha">
-<button onclick="entrar()">Entrar ♡</button>
-<div class="hint">💡 Dica: A data mais importante da nossa história 📅</div>
-<div id="erro"></div>
-</div>
-</section>
+<script>
+const rain = document.getElementById("rain");
 
-<section id="conteudo" class="hidden">
+for(let i=0;i<120;i++){
 
-<div class="letter">
+    const emoji = document.createElement("span");
 
-<h2>✨ Para minha Bruxinha ✨</h2>
-<h3 class="love-title">ESTAMOS JUNTOS HÁ ❤️</h3>
+    emoji.innerHTML = "😂";
 
-<div id="tempo" class="love-counter"></div>
+    emoji.style.left = Math.random()*100+"vw";
 
-<div class="mensagem-container">
+    emoji.style.animationDuration = (Math.random()*4+3)+"s";
 
-<div class="texto-carta">
+    emoji.style.animationDelay = Math.random()*5+"s";
 
-<p>
-Oi, Meu Momo. ❤️
+    emoji.style.fontSize = (Math.random()*35+20)+"px";
 
-Eu pensei em escrever um texto bonito para você, mas descobri que é bem mais difícil do que parece.
-
-Afinal, como eu explico que uma pessoa conseguiu ocupar tanto espaço nos meus pensamentos em tão pouco tempo?
-
-Desde o dia 23 de maio, meus dias ficaram mais interessantes.
-
-Meu celular passou a receber mensagens que realmente me fazem sorrir, minhas noites ficaram mais leves e, de alguma forma, você virou uma das minhas partes favoritas da rotina.
-
-Você é oficialmente responsável por vários crimes:
-
-✅ Roubo de atenção
-✅ Roubo de sorrisos
-✅ Roubo de paz
-✅ Ocupação ilegal do meu coração 💘
-
-Mesmo estando juntos há pouco tempo, você já conseguiu transformar momentos simples em memórias especiais.
-
-E sabe o que é mais engraçado?
-
-Eu comecei gostando de falar com você.
-
-Depois gostei de passar tempo com você.
-
-Depois gostei de sentir sua falta.
-
-E quando percebi...
-
-já estava completamente apaixonado. ❤️
-
-E se um dia você se perguntar o quanto é especial para mim...
-
-lembre-se que alguém dedicou tempo para criar um cantinho inteiro na internet só para te lembrar disso. ❤️
-
-Obrigado por fazer parte dos meus dias, te amo minha Bruxinha.
-
-E que essa seja apenas a primeira de muitas páginas da nossa história. ✨.
-
-</p>
-
-</div>
-
-<img src="figurinha.png" class="figurinha-amor" alt="❤️">
-
-</div>
-
-<h1 class="eu-te-amo">EU TE AMO ❤️</h1>
-
-<button onclick="motivo()">100 Motivos Pelos Quais Eu Te Amo ❤️</button>
-
-<div id="motivo"></div>
-
-<div class="slot-container">
-    <h2>🎰 Caça-Níquel do Amor 🎰</h2>
-
-```
-<div class="slots">
-    <div class="slot" id="slot1">❤️</div>
-    <div class="slot" id="slot2">❤️</div>
-    <div class="slot" id="slot3">❤️</div>
-</div>
-
-<button id="girar">Girar 🎰</button>
-
-<p id="resultado"></p>
-```
-<div class="amor-container">
-
-    <h2>💖 Medidor do Amor 💖</h2>
-
-    <div class="coracao-gigante" onclick="clicarCoracao()">
-        ❤️
-    </div>
-
-    <div id="contadorAmor" class="contador-amor">
-        Eu te amo x0 ❤️
-    </div>
-
-    <div id="fraseAmor" class="frase-amor">
-        Clique no coração ❤️
-    </div>
-
-</div>
-</div>
-
-</div>
-
-</section>
-
-<script src="script.js"></script>
+    rain.appendChild(emoji);
+}
+</script>
 
 </body>
 </html>
