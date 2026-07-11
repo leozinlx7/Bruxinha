@@ -56,6 +56,7 @@ body::after{
     position:relative;
     z-index:10;
     text-align:center;
+    padding:20px;
 }
 
 h1{
@@ -74,12 +75,12 @@ h1{
     position:absolute;
     inset:0;
     overflow:hidden;
+    pointer-events:none;
 }
 
 .rain span{
     position:absolute;
     top:-100px;
-    font-size:45px;
     animation:fall linear infinite;
 }
 
@@ -118,36 +119,69 @@ h1{
         transform:scale(1.15) rotate(8deg);
     }
 }
+
+@media(max-width:700px){
+    h1{
+        font-size:2.2rem;
+        padding:20px;
+    }
+}
 </style>
 </head>
 
 <body>
 
+<!-- Música -->
+<audio id="bgMusic" loop>
+    <source src="musica.mp3" type="audio/mpeg">
+</audio>
+
 <div class="rain" id="rain"></div>
 
 <div class="container">
-<h1>NÃO TEM NADA PRA VC AQUI VITÓRIA</h1>
+<h1>NÃO TEM NADA PRA VC AQUI VITÓRIA 😂</h1>
 </div>
 
 <script>
+
+// Chuva de emojis
 const rain = document.getElementById("rain");
 
-for(let i=0;i<120;i++){
+for(let i=0;i<180;i++){
 
-    const emoji = document.createElement("span");
+    const emoji=document.createElement("span");
 
-    emoji.innerHTML = "😂";
+    emoji.innerHTML="😂";
 
-    emoji.style.left = Math.random()*100+"vw";
+    emoji.style.left=Math.random()*100+"vw";
 
-    emoji.style.animationDuration = (Math.random()*4+3)+"s";
+    emoji.style.fontSize=(Math.random()*40+20)+"px";
 
-    emoji.style.animationDelay = Math.random()*5+"s";
+    emoji.style.animationDuration=(Math.random()*4+3)+"s";
 
-    emoji.style.fontSize = (Math.random()*35+20)+"px";
+    emoji.style.animationDelay=Math.random()*6+"s";
 
     rain.appendChild(emoji);
 }
+
+// Música
+const music=document.getElementById("bgMusic");
+
+music.volume=0.5;
+
+// tenta tocar automaticamente
+music.play().catch(()=>{
+
+    // se o navegador bloquear,
+    // toca no primeiro clique
+    document.addEventListener("click",()=>{
+
+        music.play();
+
+    },{once:true});
+
+});
+
 </script>
 
 </body>
